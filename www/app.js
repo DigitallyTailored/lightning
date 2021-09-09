@@ -7,8 +7,8 @@ import {data, dataEvent, dataFunction, dataRaw} from './data.js';
 
 //make data globally accessible
 window.data = data
-window.dataEvent = dataEvent
-window.dataFunction = dataFunction
+//window.dataEvent = dataEvent
+//window.dataFunction = dataFunction
 window.dataRaw = dataRaw
 
 let app = {
