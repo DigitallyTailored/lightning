@@ -3,12 +3,10 @@ import {output as viewPage} from './view/page.js';
 import {output as viewHeader} from './view/header.js';
 import {output as exampleContent} from './view/example.js';
 import {output as testString} from './view/testString.js';
-import {data, dataEvent, dataFunction, dataRaw} from './data.js';
+import {data, dataRaw} from './data.js';
 
 //make data globally accessible
 window.data = data
-//window.dataEvent = dataEvent
-//window.dataFunction = dataFunction
 window.dataRaw = dataRaw
 
 let app = {
