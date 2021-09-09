@@ -2,7 +2,7 @@
 
 This is a very lightweight Node.js and mostly vanilla JS framework for very quickly serving templated content and static files.
 
-I'm pretty sure this has been done many times before, but I'm keen to practice my JS and create a site framework with the simplest framework possible.
+I'm pretty sure this has been done many times before, but I'm keen to practice my JS and create a site framework with the simplest implementation possible.
 
 # Svelte-inspired
 
@@ -12,8 +12,8 @@ Vanilla JS template using data listeners to live-update the page:
 ```javascript
 <script>
     function handleClick(){
-    data.clicked = dataRaw.clicked + 1
-}
+        data.clicked = dataRaw.clicked + 1
+    }
 </script>
 
 <button onclick="handleClick()">
@@ -37,7 +37,7 @@ Svelte template using data listeners to live-update the page:
 It's not quite as pretty, but as it's all vanilla JS it should be easy to pick up. 
 
 # Todo
-There is so much that I want to add to this! My main goal is updating my core sites with this.
+There is so much that I want to add to this! My main goal is updating my core sites with something custom that runs very quickly.
 
 * Component styling handling (parsing?)
 * Storing created dynamic elements at creation instead of searching for them when they need to be updated

@@ -38,19 +38,19 @@ let app = {
         }
         if (path === '/test1') {
             output = viewHeader() + viewPage({
-                title: `Link 1 clicked!`,
+                title: `Page 1: some examples`,
                 content: exampleContent()
             })
         }
         if (path === '/test2') {
             output = viewHeader() + viewPage({
-                title: `Link 2 clicked!`,
+                title: `Page 2: the very same examples`,
                 content: `<p>This is a completely new page, but with the same example content:</p>`+exampleContent()
             })
         }
 
+        history.pushState({}, null, window.location.origin + path);
         if (output) {
-            history.pushState({}, null, window.location.origin + path);
             this.body.innerHTML = output
             scriptHandler.run() //todo check if this is safe
             //todo remove duplicate scripts? Scripts that have already been added

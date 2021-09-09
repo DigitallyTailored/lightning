@@ -3,12 +3,11 @@ import {button} from "./button.js";
 export function output() {
     return `<p>Hello world!</p>
 
-<div style="border: solid 1px;">
-<a href="/test1">page 1<h5>h tag in link</h5></a>
-</div>
-<a href="/test2">page 2</a><br>
-<a href="/test3/3/3">Broken link test</a><br>
-<a href="https://devanew.com/" target="_blank">external link</a><br>
+
+<a href="/test1">Page 1</a><br>
+<a href="/test2">Page 2</a><br>
+<a href="/test3/3/3">Broken link</a><br>
+<a href="https://devanew.com/" target="_blank">External link</a><br>
 
 <h1>Hi, ${data.username}!</h1>
 Name:<input type="text" name="username" onkeyup="data.username = this.value">
