@@ -39,4 +39,4 @@ There is so much that I want to add to this! My main goal is updating my core si
 * Proper routing defined separate of the app->linkProcess method
 * Basic mime-type handling on the server, currently only supports js static files (very easy to add to though!)
 * Some form of database or API access
-* Some kind of theme layout definition so each route does not require `viewHeader() + viewPage() + viewFotter()` to be explicitly defined
+* Some kind of theme layout definition so each route does not require `viewHeader() + viewPage() + viewFooter()` to be explicitly defined

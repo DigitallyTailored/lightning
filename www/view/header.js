@@ -1,7 +1,7 @@
 export function output(input = {}) {
     input.title = input.title || `My Site Template`
     return `
-<div><a href="/"><h1>${input.title}</h1></a>
+<div><a href="/"><h1>${input.title} - ${data.clicked}</h1></a>
 <p>${data.liveTest}</p>
 </div>
 <style>
