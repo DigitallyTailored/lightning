@@ -3,33 +3,33 @@ import {output as viewPage} from './view/page.js';
 import {output as viewHeader} from './view/header.js';
 import {output as exampleContent} from './view/example.js';
 import {output as testString} from './view/testString.js';
-import {data, dataRaw} from './data.js';
-import {scriptHandler} from './scriptHandler.js';
+import {data, dataRaw} from './lib/data.js';
+import {script} from './lib/script.js';
 
 //make data globally accessible
 window.data = data
 window.dataRaw = dataRaw
 
-let app = {
+let client = {
     title: `My site`,
     body: window.document.body,
     init: function () {
-        window.app = this //so that we can access the app from the console
+        window.app = this //so that we can access the client from the console
         document.addEventListener('click', this.linkClick) //capture and attempt to process local routes
-        app.linkProcess(window.location.pathname, true) //process current route
+        client.linkProcess(window.location.pathname, true) //process current route
     },
 
     linkClick: function (event) {
         let link = event.target.closest('a')
         if (link && link.host === window.location.host) {
             event.preventDefault()
-            app.linkProcess(link.pathname)
+            client.linkProcess(link.pathname)
         }
     },
     linkProcess: function (path = window.location.pathname, initial = false) {
         let output = false
 
-        //todo replace with routes file (which needs to be able to access the app/views)
+        //todo replace with routes file (which needs to be able to access the client/views)
         if (path === '/') {
             output = viewHeader() + viewPage({
                 title: `Home`,
@@ -52,7 +52,7 @@ let app = {
         history.pushState({}, null, window.location.origin + path);
         if (output) {
             this.body.innerHTML = output
-            scriptHandler.run() //todo check if this is safe
+            script.run() //todo check if this is safe
             //todo remove duplicate scripts? Scripts that have already been added
             //todo something similar for adding inline styles from components to prevent duplicates
         } else {
@@ -69,4 +69,4 @@ data.liveTest = "test " + Date.now()
 data.username = 'User'
 data.clicked = 0
 
-app.init()
+client.init()

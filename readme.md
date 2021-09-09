@@ -42,7 +42,7 @@ There is so much that I want to add to this! My main goal is updating my core si
 * Component styling handling (parsing?)
 * Storing created dynamic elements at creation instead of searching for them when they need to be updated
 * Building an event queue for components (instead of using `onclick="..."`)
-* Proper routing defined separate of the app->linkProcess method
+* Proper routing defined separate of the client->linkProcess method
 * Basic mime-type handling on the server, currently only supports js static files (very easy to add to though!)
 * Some form of database or API access
 * Some kind of theme layout definition so each route does not require `viewHeader() + viewPage() + viewFooter()` to be explicitly defined

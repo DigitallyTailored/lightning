@@ -1,8 +1,8 @@
-//server that either gives a file or returns html with the app.js file
+//server that either gives a file or returns html with the client.js file
 let fs = require('fs');
 let http = require('http');
 
-// for live reload use: nodemon index.js
+// for live reload use: nodemon server.js
 http.createServer(function (req, res) {
 
     console.log(req.url)
@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
                 `<!DOCTYPE html>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
-<script type="module" src="/app.js"></script>
+<script type="module" src="/client.js"></script>
 `);
             res.end();
         } else {
