@@ -2,6 +2,7 @@ import {button as viewButton} from './view/button.js';
 import {output as viewPage} from './view/page.js';
 import {output as viewHeader} from './view/header.js';
 import {output as exampleContent} from './view/example.js';
+import {output as testString} from './view/testString.js';
 import {data, dataEvent, dataFunction, dataRaw} from './data.js';
 
 //make data globally accessible
@@ -33,7 +34,7 @@ let app = {
         if (path === '/') {
             output = viewHeader() + viewPage({
                 title: `Home`,
-                content: exampleContent()
+                content: exampleContent() + testString()
             })
         }
         if (path === '/test1') {
