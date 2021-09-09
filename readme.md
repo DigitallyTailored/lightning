@@ -40,7 +40,7 @@ It's not quite as pretty, but as it's all vanilla JS it should be easy to pick u
 
 I think one of the main benefits of a reactive framework is being able to specify where you want output or how you want data to be handled and then forgetting about it, allowing you to concentrate on the interface and the data logic more than the communication between your logic and the DOM.
 
-With this in mind I have tried to emulate some basic reactive functionality while using front JS that does not require compilation.
+With this in mind I have tried to emulate some basic reactive functionality while using frontend JS that does not require compilation in advance of deployment.
 
 ### Immediate output of updates
 `data` has been defined as a Proxy which allows us to automatically update elements as soon as they're altered.
@@ -109,7 +109,7 @@ A for loop block in Svelte (a different use-case but again, a bit clearer)
 
 ### Working with data
 
-There are some limitations with data. To set a data value you must used the `data` variable:
+There are some limitations with data. To set a data value you must use the `data` variable:
 ```javascript
 data.test = 'hello!'
 ```
@@ -138,7 +138,7 @@ If you would like to run this locally then simple download the repository to you
 
 ```git clone git@github.com:KohakuDoig/lightning.git```
 
-and run either nodemon or nodemon in the newly created folder:
+and run either nodemon or node in the newly created folder:
 
 ```nodemon server.js``` - live file updates (faster development)
 
