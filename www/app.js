@@ -4,6 +4,7 @@ import {output as viewHeader} from './view/header.js';
 import {output as exampleContent} from './view/example.js';
 import {output as testString} from './view/testString.js';
 import {data, dataRaw} from './data.js';
+import {scriptHandler} from './scriptHandler.js';
 
 //make data globally accessible
 window.data = data
@@ -49,8 +50,9 @@ let app = {
         }
 
         if (output) {
-            this.body.innerHTML = output
             history.pushState({}, null, window.location.origin + path);
+            this.body.innerHTML = output
+            scriptHandler.run()
         } else {
             this.body.innerHTML = viewHeader() + viewPage({
                 title: `404`,

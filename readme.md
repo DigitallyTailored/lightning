@@ -10,7 +10,13 @@ It is being created with Svelte in mind, but without the need for compilation.
 
 Vanilla JS template using data listeners to live-update the page:
 ```javascript
-<button onclick="data.clicked = dataRaw.clicked + 1">
+<script>
+    function handleClick(){
+    data.clicked = dataRaw.clicked + 1
+}
+</script>
+
+<button onclick="handleClick()">
     Clicked ${data.clicked} ${data({clicked: () => (dataRaw.clicked === 1 ? 'time' : 'times')})}
 </button>
 ```

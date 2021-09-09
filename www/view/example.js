@@ -10,7 +10,13 @@ export function output() {
 <a href="/test3/3/3">Broken link test</a><br>
 <a href="https://devanew.com/" target="_blank">external link</a><br>
 
-<button onclick="data.clicked = dataRaw.clicked + 1">
+<script>
+function handleClick(){
+    data.clicked = dataRaw.clicked + 1
+}
+</script>
+
+<button onclick="handleClick()">
 Clicked ${data.clicked} ${data({clicked: () => (dataRaw.clicked === 1 ? 'time' : 'times')})}
 </button>
 
