@@ -5,7 +5,9 @@ let dataRaw = () => {},
             target[key] = value
             let elements = document.querySelectorAll(`[data-livedata=${key}]`)
             elements.forEach((element) => {
-                element.innerHTML = value
+                if(typeof value !== 'undefined'){
+                    element.innerHTML = value
+                }
             });
 
             elements = document.querySelectorAll(`[data-liveevent=${key}]`);
@@ -17,7 +19,7 @@ let dataRaw = () => {},
             return true;
         },
         get: function (target, prop, receiver) {
-            return `<span data-livedata="${prop}">`+target[prop]+`</span>`
+            return `<span data-livedata="${prop}">`+(typeof target[prop] !== 'undefined'?target[prop]:'')+`</span>`
         },
         apply: function (target, thisArg, args) {
             let key = Object.keys(args[0])[0]

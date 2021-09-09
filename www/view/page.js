@@ -3,6 +3,6 @@ export function output (input = {}){
     input.content = input.content || `<p>Page content</p>`
     return `
 <h1>${input.title}</h1>
-<div>${input.content}</div>
+<div class="page-content">${input.content}</div>
 `
 }

@@ -10,33 +10,37 @@ export function output() {
 <a href="/test3/3/3">Broken link test</a><br>
 <a href="https://devanew.com/" target="_blank">external link</a><br>
 
+<h1>Hi, ${data.username}!</h1>
+Name:<input type="text" name="username" onkeyup="data.username = this.value">
+
+
 <script>
 function handleClick(){
     data.clicked = dataRaw.clicked + 1
 }
 </script>
-
 <button onclick="handleClick()">
-Clicked ${data.clicked} ${data({clicked: () => (dataRaw.clicked === 1 ? 'time' : 'times')})}
+${data.username} Clicked ${data.clicked} ${data({clicked: () => (dataRaw.clicked === 1 ? 'time' : 'times')})}
 </button>
+
 
 <button onclick="data.clicked = dataRaw.clicked + 1">
-Clicked ${data.clicked} ${data({clicked: () => (dataRaw.clicked === 1 ? 'time' : 'times')})}
+${data.username} Clicked ${data.clicked} ${data({clicked: () => (dataRaw.clicked === 1 ? 'time' : 'times')})}
 </button>
+
 
 <button onclick="data.clicked = 0">
 Reset
 </button>
 
 <!-- using a method to return a value and using the dataLive handler to return a value -->
-<p>Click count: ${data({clicked: () => (dataRaw.clicked)})}</p>
+<p>Click count * 10: ${data({clicked: () => (dataRaw.clicked * 10)})}</p>
 <p>Click count: ${data.clicked}</p>
-<p>Click count: ${data({clicked: () => (dataRaw.clicked)})}</p>
 
 
 <p>This is an ${data({clicked: () => (dataRaw.clicked % 2 === 0 ? '<b style="color: red">even</b>' : '<b style="color: blue">odd</b>')})} amount of times.</p>
-<p>${data({clicked: () => (dataRaw.clicked > 10 && dataRaw.clicked <= 20 ? '<a href="https://devanew.com/" target="_blank">OK OK stop clicking!</a>' : '')})}</p>
-<p>${data({clicked: () => (dataRaw.clicked > 20 ? '<h3><a href="https://devanew.com/" target="_blank">Seriously?!</a></h3>' : '')})}</p>
+<p>${data({clicked: () => (dataRaw.clicked > 5 && dataRaw.clicked <= 10 ? '<a href="https://devanew.com/" target="_blank">OK OK stop clicking!</a>' : '')})}</p>
+<p>${data({clicked: () => (dataRaw.clicked > 10 ? '<h3><a href="https://devanew.com/" target="_blank">Seriously?!</a></h3>' : '')})}</p>
 
 <p>Click items:
 <ul>
@@ -45,7 +49,8 @@ ${data(
             clicked: function () {
                 let output = ''
                 for (let i = 1; i < dataRaw.clicked + 1; i++) {
-                    output += `<li>click item #${i}</li>`
+                    output += `<li>${data.username} clicked item #${i}${i===3?' Magic Number!':''}${i===7?' Lucky Number!':''}</li>
+`
                 }
                 return output
             }
@@ -55,7 +60,7 @@ ${data(
 
 <hr>
 <br>
-
+<p>In development:</p>
 ${button({text: 'test'})}
 ${button()}
 

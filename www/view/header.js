@@ -25,7 +25,7 @@ export function output(input = {}) {
         background-color: #b1d2fd;
         border-radius: 5px;
         border: 0;
-        box-shadow: 0 0 4px #00000030;
+        box-shadow: -1px 1px 2px #0000005e;
         padding: 5px 10px;
         margin: 5px;
     }
@@ -37,6 +37,19 @@ export function output(input = {}) {
         content: ' [+]';
         font-size: 0.5em;
         vertical-align: top;
+    }
+    input{
+        border-radius: 5px;
+        border: 0;
+        padding: 5px;
+        box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+    }
+    
+    .page-content{
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    margin: 5px;
     }
     
 </style>

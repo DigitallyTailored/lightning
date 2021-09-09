@@ -45,14 +45,16 @@ let app = {
         if (path === '/test2') {
             output = viewHeader() + viewPage({
                 title: `Link 2 clicked!`,
-                content: exampleContent()
+                content: `<p>This is a completely new page, but with the same example content:</p>`+exampleContent()
             })
         }
 
         if (output) {
             history.pushState({}, null, window.location.origin + path);
             this.body.innerHTML = output
-            scriptHandler.run()
+            scriptHandler.run() //todo check if this is safe
+            //todo remove duplicate scripts? Scripts that have already been added
+            //todo something similar for adding inline styles from components to prevent duplicates
         } else {
             this.body.innerHTML = viewHeader() + viewPage({
                 title: `404`,
@@ -64,6 +66,7 @@ let app = {
 };
 
 data.liveTest = "test " + Date.now()
+data.username = 'User'
 data.clicked = 0
 
 app.init()
