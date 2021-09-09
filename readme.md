@@ -146,6 +146,10 @@ OR
 
 ```node server.js``` - how you would normally run this on a server (though Lightning is not production ready yet)
 
+You should then be able to access the app from:
+
+```http://localhost:3000/```
+
 # Todo
 There is so much that I want to add to this! My main goal is updating my core sites with something custom that runs very quickly.
 
