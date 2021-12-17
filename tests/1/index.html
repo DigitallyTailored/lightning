@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title l-data="title">...</title>
+    <script src="lightning-0.3.js"></script>
+    <script src="templates/block.js"></script>
+    <script src="templates/button2.js"></script>
+    <script src="templates/item.js"></script>
+</head>
+<body>
+
+<h1 l-data="title"></h1>
+
+<!-- potential way to define a title -->
+<template id="item">
+    this is an HTML template
+</template>
+
+<item>'text':'item 1'</item>
+
+<button2>'text':'button 1'</button2>
+
+<item>'text':'item 2', 'tick': true</item>
+
+
+<item>'text':'item 3 <button2>'text':'button 2'</button2>'</item>
+
+<item>'text':'item 4 <button l-on-click="button(Luke)" style="background-color: red">hello</button>'</item>
+<item>'text':'item 5 <input name="test" value="hi">'</item>
+
+<block>'text':'<item>'text':'<button2>'text':'super nested button 3!'</button2>', 'tick': true</item>'</block>
+
+<script>
+    function button(name = "you"){
+        alert(`hello, ${name}!`)
+    }
+</script>
+
+</body>
+</html>

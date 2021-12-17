@@ -1,0 +1,1 @@
+lt.add('block', `<div style="border: solid black 1px; padding: 1em">\${text}</div>`)

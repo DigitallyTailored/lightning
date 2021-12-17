@@ -1,0 +1,1 @@
+lt.add('button2', `<button style="background-color: lightblue">\${text}!</button>`, {text:"Button 2"})

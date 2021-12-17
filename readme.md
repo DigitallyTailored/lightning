@@ -1,10 +1,10 @@
-# What is Lightning :zap: ?
+# What is Lightning (v2) :zap: ?
 
-Lightning is a very lightweight Node.js and for the frontend, entirely vanilla JS framework for very quickly serving templated content and static files.
+Lightning is a very lightweight entirely vanilla JS framework for very quickly attaching live data to elements and serving templated content.
 
-I'm pretty sure this has been done many times before, but I'm keen to practice my JS and create a site framework with the simplest implementation possible.
+It is an unobtrusive framework and should work with an existing website
 
-## Svelte-inspired
+## Apline and Svelte-inspired
 
 It is being created with Svelte in mind, but without the need for compilation.
 
@@ -55,10 +55,10 @@ becomes:
 ```javascript
 Hi, <span data-livedata="username">User</span>!
 ```
-when the string is returned. We insert the default value initially and if we update this value, then we search the document for `data-livedata="username"` to update it. 
+when the string is returned. We insert the default value initially and if we update this value, then we search the document for `data-livedata="username"` to update it.
 
 ### Functions
-There is also a function attached to the proxy allowing us to define functions to run when data is altered. 
+There is also a function attached to the proxy allowing us to define functions to run when data is altered.
 
 A simple implementation where we run a function and output the result when `data.clicked` is updated:
 
@@ -69,7 +69,7 @@ becomes:
 ```javascript
 <p>Click count * 10: <span data-liveevent="clicked" data-liveeventindex="16">20</span></p>
 ```
-Again, we are immediately outputting the result when we setup this element. You may notice that this also includes an index. This allows us to store multiple events against the same data: 
+Again, we are immediately outputting the result when we setup this element. You may notice that this also includes an index. This allows us to store multiple events against the same data:
 ```javascript
 <p>Click count * 10: ${data({clicked: () => (dataRaw.clicked * 10)})}</p>
 <p>Click count * 100: ${data({clicked: () => (dataRaw.clicked * 100)})}</p>

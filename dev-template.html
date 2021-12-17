@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title l-data="itemText" l-empty="'To-Do list'">...</title>
+  <script src="lightning.js"></script>
+</head>
+<body>
+
+<style>
+  .task-true{
+    text-decoration: line-through;
+  }
+</style>
+
+
+<label>New item
+  <input l-data="itemText" l-on-enter="addItem(${itemText})">
+</label>
+<button l-on-click="addItem(${itemText})">+</button>
+
+
+<ul l-for="items as item">
+  <li class="task-${item.done}">
+    #${item._id + 1} - ${item.text}
+    <button l-on-click="removeItem(${item._id})">X</button>
+  </li>
+</ul>
+
+<template Button>
+  <button>${text}</button>
+</template>
+
+<Button>
+  text: 'hello'
+</Button>
+
+
+
+<template Profile>
+  <h1>${name}</h1>
+  <div>${bio}</div>
+  <Button>text: 'Follow'</Button>
+</template>
+
+<Profile>
+  name: 'Luke',
+  bio: 'Luke can almost code'
+</Profile>
+
+
+<ul l-each="items">
+  <li class="task-${done}">
+    #${_number} - ${text}
+    <button l-on-click="removeItem(${_id})">X</button>
+  </li>
+</ul>
+
+
+<script>
+
+  data.items = []
+  data.items.push({text: 'Wake up', done: true})
+  data.items.push({text: 'Make coffee', done: false})
+
+  function removeItem(id) {
+    data.items[id].done = !data.items[id].done
+  }
+
+  function addItem(itemText) {
+    data.items.push({text: itemText})
+    data.itemText = ''
+  }
+
+</script>
+
+
+</body>
+</html>

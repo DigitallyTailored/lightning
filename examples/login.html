@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <template name="outfit">
+        <avatar>
+            "url" : "${avatarURL}"
+        </avatar>
+        <h2>${title}</h2>
+        <p>${content}</p>
+    </template>
+
+    <template name="avatar">
+        <img src="${url}" alt="avatar">
+    </template>
+
+    <outfit>
+        "avatarURL" : "https://via.placeholder.com/140x100",
+        "testin": "${hello}",
+        "title": "Welcome!",
+        "content": "This is an outfit."
+    </outfit>
+
+
+<script>
+    let hello = "yo yo"
+
+    let element = document.querySelector('template')
+    let name = element.attributes['name'].value
+    let content = element.innerHTML
+
+    let testElement = document.querySelector(name)
+    let testInput = `{${testElement.innerHTML}}`
+    let testOutput = JSON.parse(testInput)
+
+    console.log(testOutput)
+
+
+</script>
+
+</body>
+</html>

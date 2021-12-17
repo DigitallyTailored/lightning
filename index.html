@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title l-data="itemText">...</title>
+    <script src="lightning.js"></script>
+</head>
+<body>
+
+<style>
+    .done-true{
+        text-decoration: line-through;
+    }
+</style>
+
+
+<label>New item
+    <input l-data="itemText" l-on-enter="addItem(${itemText})">
+</label>
+<button l-on-click="addItem(${itemText})">+</button>
+
+
+<ul l-each="items">
+    <li class="done-${done}">
+        ${number} - ${text} - ${nothing} <input l-on-change="updateItem(${_id})" value="${text}">
+        <button l-on-click="removeItem(${_id})">X</button>
+    </li>
+</ul>
+
+
+<script>
+    data.items = []
+    data.items.push({number: data.items.length + 1, text: 'Wake up', done: true})
+    data.items.push({number: data.items.length + 1, text: 'Make coffee', done: false})
+
+    function removeItem(id) {
+        data.items[id].text = this.target.value
+    }
+
+    function addItem(itemText) {
+        if(itemText.length > 0){
+            data.items.push({number: data.items.length + 1, text: itemText})
+            data.itemText = ''
+        } else {
+            alert('Please enter some text')
+        }
+    }
+</script>
+
+
+</body>
+</html>

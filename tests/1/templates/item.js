@@ -1,0 +1,1 @@
+lt.add('item',`<li>- \${text} \${tick} -</li>`)

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lightning.js"></script>
+</head>
+<body>
+
+<button l-on-click="handleClick" l-use="data">
+    Clicked ${counter} ${timesText}
+</button>
+
+<script>
+    data.counter = 0
+    data.timesText = 'times'
+    function handleClick(){
+        data.counter++
+        data.timesText = (data.counter === 1 ? 'time' : 'times')
+    }
+</script>
+</body>
+</html>
