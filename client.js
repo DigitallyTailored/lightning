@@ -4,17 +4,20 @@ import {output as viewHeader} from './view/header.js';
 import {output as exampleContent} from './view/example.js';
 import {output as testString} from './view/testString.js';
 import {data, dataRaw} from './lib/data.js';
+import {events, eventsOn} from './lib/events.js';
 import {script} from './lib/script.js';
 
 //make data globally accessible
 window.data = data
 window.dataRaw = dataRaw
+window.on = eventsOn
 
 let client = {
     title: `My site`,
     body: window.document.body,
     init: function () {
         window.app = this //so that we can access the client from the console
+        events.init()
         document.addEventListener('click', this.linkClick) //capture and attempt to process local routes
         client.linkProcess(window.location.pathname, true) //process current route
     },
